@@ -1,11 +1,10 @@
 ---
+title: 'Reproducible Research: Peer Assessment 1'
 author: "Mario Martinez"
 date: "April 16, 2018"
-
-title: "Reproducible Research: Peer Assessment 1"
-output: 
+output:
   html_document:
-    keep_md: true
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -69,7 +68,7 @@ median(dailySteps)
 
 Now that we have our mean and median, let's get a histogram of the number of steps per day.
 
-```{r hist daily steps}
+```{r hist_daily_steps}
 hist(dailySteps)
 
 ```
@@ -83,7 +82,7 @@ For the average daily activity pattern, there are two ways we can answer this qu
 
 Let's go ahead and do the second one for now, as that's what's required by our project.  
 
-```{r plotting avg steps by time interval}
+```{r plotting_avg_steps_by_time_interval}
 
 intervalMeans <- tapply(dfNoNA$steps, dfNoNA$interval, mean)
 meanTS <- ts(intervalMeans, start=c(1), end=c(288), frequency=1)
@@ -115,7 +114,7 @@ sum(is.na(dfReplaceNA))
 
 Now let's get the histogram of each day's steps with all NA's replaced 
 
-```{r histogram by day}
+```{r histogram_by_day}
 
 newDailySteps <- tapply(dfReplaceNA$steps, dfReplaceNA$date, sum);
 
@@ -154,7 +153,7 @@ weekdayDF <- subset(dfReplaceNA, weekday %in% c('Monday', 'Tuesday', 'Wednesday'
 ```
 
 
-```{r  new interval means and plotting}
+```{r  new_interval_means_and_plotting}
 
 weekdayIntervalMeans <- tapply(weekdayDF$steps, weekdayDF$interval, mean)
 weekdayMeanTS <- ts(weekdayIntervalMeans, start=c(1), end=c(288), frequency=1)
