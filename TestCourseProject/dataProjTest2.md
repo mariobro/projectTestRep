@@ -1,11 +1,10 @@
 ---
+title: 'Reproducible Research: Peer Assessment 1'
 author: "Mario Martinez"
 date: "April 16, 2018"
-
-title: "Reproducible Research: Peer Assessment 1"
-output: 
+output:
   html_document:
-    keep_md: true
+    keep_md: yes
 ---
 
 
@@ -134,7 +133,7 @@ Now that we have our mean and median, let's get a histogram of the number of ste
 hist(dailySteps)
 ```
 
-![](dataProjTest2_files/figure-html/hist daily steps-1.png)<!-- -->
+![](dataProjTest2_files/figure-html/hist_daily_steps-1.png)<!-- -->
 
 ## What is the average daily activity pattern?
 
@@ -154,7 +153,7 @@ intervalLevels <- levels(as.factor(dfNoNA$interval))
 plot(intervalLevels, intervalMeans, type='l', ylim = c(0, 200))
 ```
 
-![](dataProjTest2_files/figure-html/plotting avg steps by time interval-1.png)<!-- -->
+![](dataProjTest2_files/figure-html/plotting_avg_steps_by_time_interval-1.png)<!-- -->
 And the max average steps occurs at :
 
 
@@ -193,7 +192,7 @@ newDailySteps <- tapply(dfReplaceNA$steps, dfReplaceNA$date, sum);
 hist(newDailySteps)
 ```
 
-![](dataProjTest2_files/figure-html/histogram by day-1.png)<!-- -->
+![](dataProjTest2_files/figure-html/histogram_by_day-1.png)<!-- -->
 
 And let's get the new mean and median too
 
@@ -256,7 +255,7 @@ intervalLevels <- levels(as.factor(weekdayDF$interval))
 plot(intervalLevels, weekdayIntervalMeans, type='l')
 ```
 
-![](dataProjTest2_files/figure-html/new interval means and plotting-1.png)<!-- -->
+![](dataProjTest2_files/figure-html/new_interval_means_and_plotting-1.png)<!-- -->
 
 ```r
 weekendIntervalMeans <- tapply(weekendDF$steps, weekendDF$interval, mean)
@@ -266,6 +265,6 @@ intervalLevels <- levels(as.factor(weekendDF$interval))
 plot(intervalLevels, weekendIntervalMeans, type='l')
 ```
 
-![](dataProjTest2_files/figure-html/new interval means and plotting-2.png)<!-- -->
+![](dataProjTest2_files/figure-html/new_interval_means_and_plotting-2.png)<!-- -->
 
 
